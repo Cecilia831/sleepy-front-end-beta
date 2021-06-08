@@ -2,7 +2,6 @@
 d3.csv("/data/xi/day1.csv")
 .then(makeChartMotion)
 
-
 function makeChartMotion(data) {
     console.log(data)
     let sleepyLabel = data.map(function(d)
@@ -17,22 +16,23 @@ function makeChartMotion(data) {
 
     let chart = new Chart('main', 
     {
-        type: 'line',
-        options: {
-            mainAspectRatio: false,
-            legend:{
-                display: true,
-                position: 'bottom',
-            }
-        },
+        type: 'bar',
         data: 
         {
             labels: sleepyLabel,
-            datasets:[
-                {
-                    data: sleepyData
-                }
-            ]
-        }
+            datasets:
+            [{
+                label: 'Movement',
+                data: sleepyData
+            }]
+        },
+        options: {
+            mainAspectRatio: false,
+            legend:
+            {
+                display: true,
+                position: 'bottom',
+            },
+        },
     })
 }
