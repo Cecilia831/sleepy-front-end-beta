@@ -12,14 +12,15 @@
 <body>
     <!-- Javascript -->
     <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Bootstrap Container Starts Here -->
     <div class="container">
         <div class="row">
             <div id="select-date" class="col-md-12">Date Drop Down Will Go Here</div>
         </div>
         <div class="row">
-            <div id="main-chart" class="col-md-8">Main Chart Goes Here</div>
-            <div id="temp-chart" class="col-md-4">Temperature Chart Goes Here</div>
+            <div id="main-chart" class="col-md-8"> <canvas id="main"> </canvas> </div>
+            <div id="temp-chart" class="col-md-4"> <canvas id="temperature"> </canvas> </div>
         </div>
     </div>
     <!-- Bootstrap Bundle -->
