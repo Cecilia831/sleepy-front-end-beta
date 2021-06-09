@@ -26,6 +26,12 @@ function selector(){
 function drawCharts(data){
     makeChartMotion(data)
     makeChartTemp(data)
+
+    if(typeof data[0].CO2 != "undefined")
+        makeChartCo2(data)
+    else
+        window.co2Chart.destroy() 
+
 }
 
 function makeChartMotion(data) {
@@ -127,6 +133,82 @@ function makeChartTemp(data) {
                         autoSkipPadding: 10,
                         maxTicksLimit:10,
                         padding: 10,
+                    }
+                },
+            },
+            plugins:{
+                legend:
+                {
+                    display: true,
+                    position: 'bottom',
+                },
+            },
+
+        },
+    })
+}
+
+// Create the Motion Chart
+function makeChartCo2(data) {
+    console.log(data)
+
+    // Get Time
+    let timeData = data.map(function(d)
+    {
+        return d.Time
+    })
+
+    // Get CO2
+    let co2Data = data.map(function(d)
+    {
+        return d.CO2
+    })
+
+    // Get TVOC
+    let tvocData= data.map(function(d)
+    {
+        return d.TVOC
+    })
+
+    // Destroy previous chart if it already exists
+    if(window.co2Chart != null)
+        window.co2Chart.destroy() 
+     
+    // Draw New Chart
+    window.co2Chart = new Chart('co2', 
+    {
+        type: 'line',
+        data: {
+            labels: timeData,
+            datasets:[{
+                label: 'CO2 (PPM)',
+                data: co2Data,
+                backgroundColor: ['rgba(153, 102, 255, 1)'],
+                borderColor: ['rgba(153, 102, 255, 1)'],
+                borderWidth: 1,
+                tension: 0.4,
+            },
+            {
+                label: 'TVOC (PPM)',
+                data: tvocData,
+                backgroundColor: ['rgba(153, 102, 255, 1)'],
+                borderColor: ['rgba(153, 102, 255, 1)'],
+                borderWidth: 1,
+                tension: 0.4,
+            }]
+        },
+        options: {
+            scales:{
+                y: {
+                    ticks:{
+                        beginAtZero: true,
+                    }
+                },
+                x: {
+                    ticks:{
+                        autoSkip: true,
+                        autoSkipPadding: 10,
+                        maxTicksLimit:10,
                     }
                 },
             },
