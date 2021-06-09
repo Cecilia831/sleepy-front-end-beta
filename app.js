@@ -80,3 +80,60 @@ function makeChartMotion(data) {
         },
     })
 }
+
+function makeChartTemp(data) {
+    console.log(data)
+    let tempLabel = data.map(function(d)
+    {
+        return d.Time
+    })
+
+    let tempData = data.map(function(d)
+    {
+        return d.Temperature
+    })
+
+    if(window.tempChart != null)
+        window.tempChart.destroy() 
+        
+    window.tempChart = new Chart('temperature', 
+    {
+        type: 'line',
+        data: {
+            labels: sleepyLabel,
+            datasets:[{
+                label: 'Temprature',
+                data: sleepyData,
+                backgroundColor: ['rgba(153, 102, 255, 1)'],
+                borderColor: ['rgba(153, 102, 255, 1)'],
+                borderWidth: 1,
+                tension: 0.4,
+            }]
+        },
+        options: {
+            scales:{
+                y: {
+                    ticks:{
+                        beginAtZero: true,
+                    }
+                },
+                x: {
+                    ticks:{
+                        autoSkip: true,
+                        autoSkipPadding: 10,
+                        maxTicksLimit:10,
+                        padding: 10,
+                    }
+                },
+            },
+            plugins:{
+                legend:
+                {
+                    display: true,
+                    position: 'bottom',
+                },
+            },
+
+        },
+    })
+}
