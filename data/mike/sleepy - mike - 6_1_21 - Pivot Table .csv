@@ -1,4 +1,4 @@
-Time - Hour,MIN of Time,SUM of Movement,AVERAGE of Light,AVERAGE of Temperature,AVERAGE of Humidity,SUM of Sound,AVERAGE of CO2,AVERAGE of TVOC
+Hour,Time,Movement,Light,Temperature,Humidity,Sound,CO2,TVOC
 1,1:30:01 AM,63,182,28.12,31,452,408,1
 2,2:00:00 AM,459,50,28.33,32,71,533,20
 3,3:00:00 AM,32,1,28.18,33,72,559,24

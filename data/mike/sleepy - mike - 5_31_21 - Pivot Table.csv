@@ -1,4 +1,4 @@
-Time - Hour,MAX of Time,SUM of Motion,SUM of Light,SUM of Temperature,SUM of Humidity,SUM of Sound,SUM of CO2,SUM of TVOC
+Hour,Time,Movement,Light,Temperature,Humidity,Sound,CO2,TVOC
 1,1:59:59 AM,193,77247,"57,986.60",66039,37,3008492,627527
 2,2:59:59 AM,14,638,"95,621.10",114847,75,6955265,2286969
 3,3:59:59 AM,20,700,"94,704.70",123631,70,7283783,2829483
