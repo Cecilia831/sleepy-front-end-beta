@@ -20,8 +20,12 @@ function selector(){
 
     // Load the CSV
     d3.csv(filePath)
-    .then(makeChartMotion)
+    .then(drawCharts)
+}
 
+function drawCharts(data){
+    makeChartMotion(data)
+    makeChartTemp(data)
 }
 
 function makeChartMotion(data) {
@@ -100,10 +104,10 @@ function makeChartTemp(data) {
     {
         type: 'line',
         data: {
-            labels: sleepyLabel,
+            labels: tempLabel,
             datasets:[{
                 label: 'Temprature',
-                data: sleepyData,
+                data: tempData,
                 backgroundColor: ['rgba(153, 102, 255, 1)'],
                 borderColor: ['rgba(153, 102, 255, 1)'],
                 borderWidth: 1,
