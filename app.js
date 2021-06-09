@@ -1,7 +1,6 @@
 // Load the CSV
-d3.csv("/data/xi/day1.csv")
+d3.csv("/data/sample/mike - sample pivot (hour).csv")
 .then(makeChartMotion)
-
 
 function makeChartMotion(data) {
     console.log(data)
@@ -18,21 +17,41 @@ function makeChartMotion(data) {
     let chart = new Chart('main', 
     {
         type: 'line',
-        options: {
-            mainAspectRatio: false,
-            legend:{
-                display: true,
-                position: 'bottom',
-            }
-        },
-        data: 
-        {
+        data: {
             labels: sleepyLabel,
-            datasets:[
+            datasets:[{
+                label: 'Movement',
+                data: sleepyData,
+                backgroundColor: ['rgba(153, 102, 255, 1)'],
+                borderColor: ['rgba(153, 102, 255, 1)'],
+                borderWidth: 1,
+                tension: 0.4,
+            }]
+        },
+        options: {
+            scales:{
+                y: {
+                    ticks:{
+                        beginAtZero: true,
+                    }
+                },
+                x: {
+                    ticks:{
+                        autoSkip: true,
+                        autoSkipPadding: 10,
+                        maxTicksLimit:10,
+                        padding: 10,
+                    }
+                },
+            },
+            plugins:{
+                legend:
                 {
-                    data: sleepyData
-                }
-            ]
-        }
+                    display: true,
+                    position: 'bottom',
+                },
+            },
+
+        },
     })
 }

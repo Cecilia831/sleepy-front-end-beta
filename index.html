@@ -1,34 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Sleepy</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <title>Sleepy</title>
+    <!-- Bootstrap Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
     <!-- D3 -->
     <script src="https://d3js.org/d3.v6.min.js"></script>
-</head>
-<body>
-    <!-- Javascript -->
-    <script src="./app.js"></script>
     <!-- Chart JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    <!-- Bootstrap Container Starts Here -->
-
-    <div class="container">
-        <div class="row">
-            <div id="select-date" class="col-md-12">Date Drop Down Will Go Here</div>
+</head>
+<body>
+    <!-- Header -->
+    <div class="jumbrotron text-center">
+        <h1>Sleepy Dashboard</h1>
+        <p>sleep & environmental data</p>
+        <div class="form-group col-md-4">
+            <select class="form-control">
+                <option>Dataset 1</option>
+                <option>Dataset 2</option>
+                <option>Dataset 3</option>
+                <option>Dataset 4</option>
+                <option>Dataset 5</option>
+            </select>
         </div>
+    </div>
+    <!--Chart Containers-->
+    <div class="container">
         <div class="row">
             <div id="main-chart" class="col-md-8"> <canvas id="main"> </canvas> </div>
             <div id="temp-chart" class="col-md-4"> <canvas id="temperature"> </canvas> </div>
         </div>
     </div>
-    <!-- Bootstrap Bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
-    
+    <!-- Javascript -->
+    <script src="./app.js"></script>
 </body>
 </html>
