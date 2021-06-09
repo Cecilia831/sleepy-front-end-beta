@@ -25,6 +25,7 @@ function makeChartMotion(data) {
                 backgroundColor: ['rgba(153, 102, 255, 1)'],
                 borderColor: ['rgba(153, 102, 255, 1)'],
                 borderWidth: 1,
+                tension: 0.4,
             }]
         },
         options: {
