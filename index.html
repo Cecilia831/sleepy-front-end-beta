@@ -1,28 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Sleepy</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <title>Sleepy</title>
-
-</head>
-<body>
-    <!-- Javascript -->
-    <script src="app.js"></script>
-    <!-- Bootstrap Container Starts Here -->
-    <div class="container">
-        <div class="row">
-            <div id="select-date" class="col-md-12">Date Drop Down Will Go Here</div>
-        </div>
-        <div class="row">
-            <div id="main-chart" class="col-md-8">Main Chart Goes Here</div>
-            <div id="temp-chart" class="col-md-4">Temperature Chart Goes Here</div>
-        </div>
-    </div>
     <!-- Bootstrap Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <!-- D3 -->
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <!-- Chart JS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Header -->
+    <div class="jumbrotron text-center">
+        <h1>Sleepy Dashboard</h1>
+        <p>sleep & environmental data</p>
+        <div class="form-group col-md-4">
+            <select id="select-data" class="form-control" onchange="selector()">
+                <option value="0">mike - 5/30/21</option>
+                <option value="1">mike - 5/31/21</option>
+                <option value="2">mike - 6/1/21</option>
+                <option value="3">mike - 6/2/21</option>
+                <option value="4">mike - 6/3/21</option>
+                <option value="5">mike - 6/4/21</option>
+                <option value="6">mike - 6/5/21</option>
+                <option value="7">mike - 6/6/21</option>
+                <option value="8">xi - day 1</option>
+                <option value="9">xi - day 2</option>
+                <option value="10">xi - day 3</option>
+                <option value="11">xi - day 4</option>
+            </select>
+        </div>
+    </div>
+    <!--Chart Containers-->
+    <div class="container">
+        <div class="row">
+            <div id="main-chart" class="col-md-8"> <canvas id="main"> </canvas> </div>
+            <div id="temp-chart" class="col-md-4"> <canvas id="temperature"> </canvas> </div>
+        </div>
+    </div>
+    <!-- Javascript -->
+    <script src="./app.js"></script>
 </body>
 </html>
