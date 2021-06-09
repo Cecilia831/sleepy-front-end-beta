@@ -103,6 +103,10 @@ function makeChartTemp(data) {
         return d.Temperature
     })
 
+    let humidityData = data.map(function(d){
+        return d.Humidity
+    })
+
     if(window.tempChart != null)
         window.tempChart.destroy() 
         
@@ -111,14 +115,23 @@ function makeChartTemp(data) {
         type: 'line',
         data: {
             labels: tempLabel,
-            datasets:[{
+            datasets:[
+                {
                 label: 'Temprature',
                 data: tempData,
                 backgroundColor: ['rgba(153, 102, 255, 1)'],
                 borderColor: ['rgba(153, 102, 255, 1)'],
                 borderWidth: 1,
                 tension: 0.4,
-            }]
+                },
+                {
+                label: 'Humidity',
+                data: humidityData,
+                backgroundColor: ['rgba(153, 102, 255, 1)'],
+                borderColor: ['rgba(153, 102, 255, 1)'],
+                borderWidth: 1,
+                tension: 0.4,
+                }]
         },
         options: {
             scales:{
