@@ -51,7 +51,7 @@ function makeChartMotion(data) {
         
     window.motionChart = new Chart('main', 
     {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: sleepyLabel,
             datasets:[{
@@ -71,6 +71,7 @@ function makeChartMotion(data) {
             }]
         },
         options: {
+            responsive: true,
             scales:{
                 y: {
                     ticks:{
@@ -92,6 +93,10 @@ function makeChartMotion(data) {
                     display: true,
                     position: 'bottom',
                 },
+                title:{
+                    display: true,
+                    text: 'Motion Sensor Report'
+                }
             },
 
         },
@@ -158,6 +163,7 @@ function makeChartTemp(data) {
                 }]
         },
         options: {
+            responsive: true,
             scales:{
                 y: {
                     ticks:{
@@ -179,6 +185,10 @@ function makeChartTemp(data) {
                     display: true,
                     position: 'bottom',
                 },
+                title:{
+                    display: true,
+                    text: 'Temperature Sensor Report'
+                }
             },
 
         },
@@ -250,6 +260,7 @@ function makeChartCo2(data) {
             }]
         },
         options: {
+            responsive: true,
             scales:{
                 y: {
                     ticks:{
@@ -270,6 +281,10 @@ function makeChartCo2(data) {
                     display: true,
                     position: 'bottom',
                 },
+                title:{
+                    display: true,
+                    text: 'Air Quality Report'
+                }
             },
 
         },
