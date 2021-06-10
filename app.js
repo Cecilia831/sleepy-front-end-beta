@@ -117,7 +117,7 @@ function makeChartTemp(data) {
             labels: tempLabel,
             datasets:[
                 {
-                label: 'Temprature',
+                label: 'Temperature (C)',
                 data: tempData,
                 backgroundColor: ['rgba(153, 102, 255, 1)'],
                 borderColor: ['rgba(153, 102, 255, 1)'],
@@ -125,7 +125,7 @@ function makeChartTemp(data) {
                 tension: 0.4,
                 },
                 {
-                label: 'Humidity',
+                label: 'Humidity (%)',
                 data: humidityData,
                 backgroundColor: ['rgba(153, 102, 255, 1)'],
                 borderColor: ['rgba(153, 102, 255, 1)'],
