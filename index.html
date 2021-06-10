@@ -13,37 +13,50 @@
     <script src="https://d3js.org/d3.v6.min.js"></script>
     <!-- Chart JS -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Sleepy CSS -->
+    <link rel="stylesheet" href="sleepy.css">
 </head>
 <body>
     <!-- Header -->
-    <div class="jumbrotron text-center">
-        <h1>Sleepy Dashboard</h1>
-        <p>sleep & environmental data</p>
-        <div class="form-group col-md-4">
-            <select id="select-data" class="form-control" onchange="selector()">
-                <option value="0">mike - 5/30/21</option>
-                <option value="1">mike - 5/31/21</option>
-                <option value="2">mike - 6/1/21</option>
-                <option value="3">mike - 6/2/21</option>
-                <option value="4">mike - 6/3/21</option>
-                <option value="5">mike - 6/4/21</option>
-                <option value="6">mike - 6/5/21</option>
-                <option value="7">mike - 6/6/21</option>
-                <option value="8">xi - day 1</option>
-                <option value="9">xi - day 2</option>
-                <option value="10">xi - day 3</option>
-                <option value="11">xi - day 4</option>
-            </select>
+        <div class="jumbotron-fluid">
+            <div id="sleepy-header" class="container-fluid">
+                <h1 class="display-4">Sleepy Dashboard</h1>
+                <p class="lead">sleep & environment data</p>
+                <div class="form-group col-md-4 col-lg-3">
+                    <select id="select-data" class="form-control" onchange="selector()">
+                        <option value="-1">Hey, come choose a data set :)</option>
+                        <option value="0">mike - 5/30/21</option>
+                        <option value="1">mike - 5/31/21</option>
+                        <option value="2">mike - 6/1/21</option>
+                        <option value="3">mike - 6/2/21</option>
+                        <option value="4">mike - 6/3/21</option>
+                        <option value="5">mike - 6/4/21</option>
+                        <option value="6">mike - 6/5/21</option>
+                        <option value="7">mike - 6/6/21</option>
+                        <option value="8">xi - day 1</option>
+                        <option value="9">xi - day 2</option>
+                        <option value="10">xi - day 3</option>
+                        <option value="11">xi - day 4</option>
+                    </select>
+                </div>
+            </div>
         </div>
     </div>
     <!--Chart Containers-->
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div id="main-chart" class="col-md-8"> <canvas id="main"> </canvas> </div>
-            <div id="temp-chart" class="col-md-4"> <canvas id="temperature"> </canvas> </div>
+            <div id="main-chart" class="col-md-12 bigchart"> 
+                <canvas id="main"> </canvas> 
+            </div>
         </div>
         <div class="row">
-            <div id="co2-chart" class="col-md-8"><canvas id="co2"></canvas></div>
+                <div id="temp-chart" class="col-md-6 smallchart"> 
+                    <canvas id="temperature"> </canvas> 
+                </div>
+                <div id="co2-chart" class="col-md-6 smallchart">
+                    <canvas id="co2"></canvas>
+                </div>
+            </div>   
         </div>
     </div>
     <!-- Javascript -->
