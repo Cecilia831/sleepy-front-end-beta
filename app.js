@@ -57,10 +57,17 @@ function makeChartMotion(data) {
             datasets:[{
                 label: 'Movement',
                 data: sleepyData,
+                fill: false,
+                // Line color
                 backgroundColor: ['rgba(153, 102, 255, 1)'],
-                borderColor: ['rgba(153, 102, 255, 1)'],
-                borderWidth: 1,
-                tension: 0.4,
+                borderColor:     ['rgba(153, 102, 255, 1)'],
+                borderWidth: 2,
+                // Point color
+                pointBackgroundColor: ['rgba(153, 102, 255, 1)'],
+                pointBorderColor:     ['rgba(153, 102, 255, 1)'],
+                // Interaction
+                pointHoverRadius:8,
+                tension: 0.4
             }]
         },
         options: {
@@ -123,14 +130,16 @@ function makeChartTemp(data) {
                 borderColor: ['rgba(153, 102, 255, 1)'],
                 borderWidth: 1,
                 tension: 0.4,
+                fill: false
                 },
                 {
                 label: 'Humidity (%)',
                 data: humidityData,
-                backgroundColor: ['rgba(153, 102, 255, 1)'],
-                borderColor: ['rgba(153, 102, 255, 1)'],
+                backgroundColor: ['rgba(255,215,0, 1)'],
+                borderColor: ['rgba(255,215,0, 1)'],
                 borderWidth: 1,
                 tension: 0.4,
+                fill: false
                 }]
         },
         options: {
@@ -200,14 +209,18 @@ function makeChartCo2(data) {
                 borderColor: ['rgba(153, 102, 255, 1)'],
                 borderWidth: 1,
                 tension: 0.4,
+                fill:false
+                
             },
             {
                 label: 'TVOC (PPM)',
                 data: tvocData,
-                backgroundColor: ['rgba(153, 102, 255, 1)'],
-                borderColor: ['rgba(153, 102, 255, 1)'],
+                backgroundColor: ['rgba(255, 20, 147, 1)'],
+                borderColor: ['rgba(255, 20, 147, 1)'],
                 borderWidth: 1,
                 tension: 0.4,
+                fill:false
+                
             }]
         },
         options: {
