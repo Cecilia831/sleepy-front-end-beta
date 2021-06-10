@@ -57,10 +57,17 @@ function makeChartMotion(data) {
             datasets:[{
                 label: 'Movement',
                 data: sleepyData,
-                backgroundColor: ['rgba(153, 102, 255, 1)'],
-                borderColor: ['rgba(153, 102, 255, 1)'],
-                borderWidth: 1,
-                tension: 0.4,
+                fill: true,
+                // Line color
+                backgroundColor: ['rgba(153, 102, 255, 0.2)'],
+                borderColor:     ['rgba(153, 102, 255, 1)'],
+                borderWidth: 4,
+                // Point color
+                pointBackgroundColor: ['rgba(153, 102, 255, 1)'],
+                pointBorderColor:     ['rgba(153, 102, 255, 1)'],
+                // Interaction
+                pointHoverRadius:8,
+                tension: 0.4
             }]
         },
         options: {
@@ -119,17 +126,34 @@ function makeChartTemp(data) {
                 {
                 label: 'Temperature (C)',
                 data: tempData,
-                backgroundColor: ['rgba(153, 102, 255, 1)'],
-                borderColor: ['rgba(153, 102, 255, 1)'],
-                borderWidth: 1,
-                tension: 0.4,
+
+                fill: true,
+                // Line color
+                backgroundColor: ['rgba(153, 102, 255, 0.2)'],
+                borderColor:     ['rgba(153, 102, 255, 1)'],
+                borderWidth: 4,
+                // Point color
+                pointBackgroundColor: ['rgba(153, 102, 255, 1)'],
+                pointBorderColor:     ['rgba(153, 102, 255, 1)'],
+                // Interaction
+                pointHoverRadius:8,
+                tension: 0.4
+
+
                 },
                 {
                 label: 'Humidity (%)',
                 data: humidityData,
-                backgroundColor: ['rgba(153, 102, 255, 1)'],
-                borderColor: ['rgba(153, 102, 255, 1)'],
-                borderWidth: 1,
+                fill: true,
+                // Line color
+                backgroundColor: ['rgba(255,215,0, 0.2)'],
+                borderColor:     ['rgba(255,215,0, 1)'],
+                borderWidth: 4,
+                // Point color
+                pointBackgroundColor: ['rgba(255,215,0, 1)'],
+                pointBorderColor:     ['rgba(255,215,0, 1)'],
+                // Interaction
+                pointHoverRadius: 8,
                 tension: 0.4,
                 }]
         },
@@ -196,17 +220,32 @@ function makeChartCo2(data) {
             datasets:[{
                 label: 'CO2 (PPM)',
                 data: co2Data,
-                backgroundColor: ['rgba(153, 102, 255, 1)'],
-                borderColor: ['rgba(153, 102, 255, 1)'],
-                borderWidth: 1,
+                fill:true,
+                // Line color
+                backgroundColor: ['rgba(153, 102, 255, 0.2)'],
+                borderColor:     ['rgba(153, 102, 255, 1)'],
+                borderWidth: 4,
+                // Point color
+                pointBackgroundColor: ['rgba(153, 102, 255, 1)'],
+                pointBorderColor:     ['rgba(153, 102, 255, 1)'],
+                // Interaction
+                pointHoverRadius: 8,
                 tension: 0.4,
+                
             },
             {
                 label: 'TVOC (PPM)',
                 data: tvocData,
-                backgroundColor: ['rgba(153, 102, 255, 1)'],
-                borderColor: ['rgba(153, 102, 255, 1)'],
-                borderWidth: 1,
+                fill:true,
+                // Line color
+                backgroundColor: ['rgba(255, 20, 147, 0.2)'],
+                borderColor:     ['rgba(255, 20, 147, 1)'],
+                borderWidth: 4,
+                // Point color
+                pointBackgroundColor: ['rgba(255, 20, 147, 1)'],
+                pointBorderColor:     ['rgba(255, 20, 147, 1)'],
+                // Interaction
+                pointHoverRadius: 8,
                 tension: 0.4,
             }]
         },
