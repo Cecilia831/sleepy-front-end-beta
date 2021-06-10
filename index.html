@@ -17,8 +17,55 @@
     <link rel="stylesheet" href="sleepy.css">
 </head>
 <body>
-    <!-- Header -->
-        <div class="jumbotron-fluid">
+    <!-- CSS Grid Begin -->
+    <div class="grid-container">
+        <!-- Header -->
+        <div class="item1">
+            <div class="jumbotron-fluid">
+                <div id="sleepy-header" class="container-fluid">
+                    <h1 class="display-4">Sleepy Dashboard</h1>
+                    <p class="lead">sleep & environment data</p>
+                    <div class="form-group col-md-5 col-lg-3">
+                        <select id="select-data" class="form-control" onchange="selector()">
+                            <option value="-1">Hey, come choose a data set :)</option>
+                            <option value="0">mike - 5/30/21</option>
+                            <option value="1">mike - 5/31/21</option>
+                            <option value="2">mike - 6/1/21</option>
+                            <option value="3">mike - 6/2/21</option>
+                            <option value="4">mike - 6/3/21</option>
+                            <option value="5">mike - 6/4/21</option>
+                            <option value="6">mike - 6/5/21</option>
+                            <option value="7">mike - 6/6/21</option>
+                            <option value="8">xi - day 1</option>
+                            <option value="9">xi - day 2</option>
+                            <option value="10">xi - day 3</option>
+                            <option value="11">xi - day 4</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Big Chart-->
+        <div class="item2">
+            <div class="chart-container big-chart"> 
+                <canvas id="main"> </canvas> 
+            </div>
+        </div>
+        <!--Small Chart 1-->
+        <div class="item3">
+            <div class="chart-container small-chart"> 
+                <canvas id="temperature"> </canvas> 
+            </div>
+        </div>
+        <!--Small Chart 2-->
+        <div class="item4">
+            <div class="chart-container small-chart">
+                <canvas id="co2"></canvas>
+            </div>
+        </div>
+    </div>
+    <!--CSS Grid Ends-->
+        <!-- <div class="jumbotron-fluid">
             <div id="sleepy-header" class="container-fluid">
                 <h1 class="display-4">Sleepy Dashboard</h1>
                 <p class="lead">sleep & environment data</p>
@@ -42,7 +89,7 @@
             </div>
         </div>
     </div>
-    <!--Chart Containers-->
+
     <div class="container-fluid">
         <div class="row">
             <div id="main-chart" class="col-md-12 col-sm-12 col-lg-12 bigchart"> 
@@ -58,8 +105,8 @@
                 </div>
             </div>   
         </div>
-    </div>
-    <!-- Javascript -->
+    </div> -->
+    <!--Javascript-->
     <script src="./app.js"></script>
 </body>
 </html>

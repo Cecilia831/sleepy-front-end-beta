@@ -1,4 +1,4 @@
-// Data Array
+// Data Array of all the data files we collected
 const sleepArray = [
     "data/mike/sleepy - mike - 5_30_21 - Pivot Table .csv",
     "data/mike/sleepy - mike - 5_31_21 - Pivot Table.csv",
@@ -14,6 +14,7 @@ const sleepArray = [
     "data/xi/day4.csv",
 ]
 
+// Selector Function chooses the CSV to load
 function selector(){
     let i = document.getElementById('select-data').value
     let filePath = sleepArray[i]
@@ -23,19 +24,23 @@ function selector(){
     .then(drawCharts)
 }
 
+// drawCharts loads the data into each chart type
 function drawCharts(data){
     makeChartMotion(data)
     makeChartTemp(data)
 
+    // Some datasets are missing co2 information so we destroy any previous c02 charts
     if(typeof data[0].CO2 != "undefined")
         makeChartCo2(data)
     else
         window.co2Chart.destroy() 
-
 }
 
+// Create Motion Chart
 function makeChartMotion(data) {
     console.log(data)
+
+    // Variable Starter Pack Begins
     let sleepyTime = data.map(function(d){
         return d.Time
     })
@@ -51,46 +56,43 @@ function makeChartMotion(data) {
     let sleepySound = data.map(function(d){
         return d.Sound
     })
+    // Variable Starter Pack Ends
 
+    // If a previous chart exists, we must destory it before we draw a new one
     if(window.motionChart != null)
         window.motionChart.destroy() 
-        
+       
+    // Draw a Chart 
     window.motionChart = new Chart('main', 
     {
-
+        // Data Setup
         data: {
             labels: sleepyTime,
             datasets:[{
-                type: 'bar',
+                type: 'line',
                 label: 'Movement',
                 data: sleepyMovement,
                 fill: true,
                 // Line color
-                backgroundColor: ['rgba(153, 102, 255, .5)'],
-                borderColor:     ['rgba(153, 102, 255, 1)'],
+                backgroundColor: ['rgba(153, 102, 255, .5)'], //purple
+                borderColor:     ['rgba(153, 102, 255, 1)'], //purple
                 borderWidth: 4,
                 // Point color
-                pointBackgroundColor: ['rgba(153, 102, 255, 1)'],
-                pointBorderColor:     ['rgba(153, 102, 255, 1)'],
+                pointBackgroundColor: ['rgba(153, 102, 255, 1)'], //purple
+                pointBorderColor:     ['rgba(153, 102, 255, 1)'], //purple
                 // Interaction
                 pointHoverRadius:8,
                 tension: 0.4
             }]
         },
+        // Configuration
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             scales:{
                 y: {
                     ticks:{
                         beginAtZero: true,
-                    }
-                },
-                x: {
-                    ticks:{
-                        autoSkip: true,
-                        autoSkipPadding: 10,
-                        maxTicksLimit:10,
-                        padding: 10,
                     }
                 },
             },
@@ -105,13 +107,15 @@ function makeChartMotion(data) {
                     text: 'Motion Sensor Report'
                 }
             },
-
         },
     })
 }
 
+// Create Temperature Chart
 function makeChartTemp(data) {
     console.log(data)
+    
+    // Variable Starter Pack Begins
     let tempLabel = data.map(function(d)
     {
         return d.Time
@@ -125,7 +129,9 @@ function makeChartTemp(data) {
     let humidityData = data.map(function(d){
         return d.Humidity
     })
+    // Variable Starter Pack Ends
 
+    // If a previous chart exists, we must destory it before we draw a new one
     if(window.tempChart != null)
         window.tempChart.destroy() 
         
@@ -141,12 +147,12 @@ function makeChartTemp(data) {
 
                 fill: true,
                 // Line color
-                backgroundColor: ['rgba(153, 102, 255, 0.2)'],
-                borderColor:     ['rgba(153, 102, 255, 1)'],
+                backgroundColor: ['rgba(153, 102, 255, 0.4)'], // Purple
+                borderColor:     ['rgba(153, 102, 255, 1)'], // Purple
                 borderWidth: 4,
                 // Point color
-                pointBackgroundColor: ['rgba(153, 102, 255, 1)'],
-                pointBorderColor:     ['rgba(153, 102, 255, 1)'],
+                pointBackgroundColor: ['rgba(153, 102, 255, 1)'], // Purple
+                pointBorderColor:     ['rgba(153, 102, 255, 1)'], // Purple
                 // Interaction
                 pointHoverRadius:8,
                 tension: 0.4
@@ -158,12 +164,12 @@ function makeChartTemp(data) {
                 data: humidityData,
                 fill: true,
                 // Line color
-                backgroundColor: ['rgba(255,215,0, 0.2)'],
+                backgroundColor: ['rgba(255,215,0, 0.4)'], //Yellow
                 borderColor:     ['rgba(255,215,0, 1)'],
                 borderWidth: 4,
                 // Point color
-                pointBackgroundColor: ['rgba(255,215,0, 1)'],
-                pointBorderColor:     ['rgba(255,215,0, 1)'],
+                pointBackgroundColor: ['rgba(255,215,0, 1)'], //Yellow
+                pointBorderColor:     ['rgba(255,215,0, 1)'], //Yellow
                 // Interaction
                 pointHoverRadius: 8,
                 tension: 0.4,
@@ -171,10 +177,11 @@ function makeChartTemp(data) {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             scales:{
                 y: {
                     ticks:{
-                        beginAtZero: true,
+                        beginAtZero: false,
                     }
                 },
                 x: {
@@ -194,7 +201,7 @@ function makeChartTemp(data) {
                 },
                 title:{
                     display: true,
-                    text: 'Temperature Sensor Report'
+                    text: 'Temperature Sensor Report',
                 }
             },
 
@@ -202,27 +209,24 @@ function makeChartTemp(data) {
     })
 }
 
-// Create the Motion Chart
+// Create the co2 Chart
 function makeChartCo2(data) {
     console.log(data)
 
-    // Get Time
-    let timeData = data.map(function(d)
-    {
+    // Variable Starter Pack Begins
+    let timeData = data.map(function(d){
         return d.Time
     })
 
-    // Get CO2
-    let co2Data = data.map(function(d)
-    {
+    let co2Data = data.map(function(d){
         return d.CO2
     })
 
-    // Get TVOC
-    let tvocData= data.map(function(d)
-    {
+
+    let tvocData= data.map(function(d){
         return d.TVOC
     })
+    // Variable Starter Pack Ends
 
     // Destroy previous chart if it already exists
     if(window.co2Chart != null)
@@ -231,7 +235,7 @@ function makeChartCo2(data) {
     // Draw New Chart
     window.co2Chart = new Chart('co2', 
     {
-        type: 'bar',
+        type: 'line',
         data: {
             labels: timeData,
             datasets:[{
@@ -239,28 +243,27 @@ function makeChartCo2(data) {
                 data: co2Data,
                 fill:true,
                 // Line color
-                backgroundColor: ['rgba(153, 102, 255, 0.5)'],
-                borderColor:     ['rgba(153, 102, 255, 1)'],
+                backgroundColor: ['rgba(153, 102, 255, .4)'], // Purple
+                borderColor:     ['rgba(153, 102, 255, 1)'], // Purple
                 borderWidth: 4,
                 // Point color
-                pointBackgroundColor: ['rgba(153, 102, 255, 1)'],
-                pointBorderColor:     ['rgba(153, 102, 255, 1)'],
+                pointBackgroundColor: ['rgba(153, 102, 255, 1)'], // Purple
+                pointBorderColor:     ['rgba(153, 102, 255, 1)'], // Purple
                 // Interaction
-                pointHoverRadius: 8,
-                tension: 0.4,
-                
+                pointHoverRadius: 8,        
+                tension: 0.4, 
             },
             {
                 label: 'TVOC (PPM)',
                 data: tvocData,
                 fill:true,
                 // Line color
-                backgroundColor: ['rgba(255, 20, 147, 0.5)'],
-                borderColor:     ['rgba(255, 20, 147, 1)'],
+                backgroundColor: ['rgba(255, 20, 147, .4)'], // Magenta
+                borderColor:     ['rgba(255, 20, 147, 1)'], // Magenta
                 borderWidth: 4,
                 // Point color
-                pointBackgroundColor: ['rgba(255, 20, 147, 1)'],
-                pointBorderColor:     ['rgba(255, 20, 147, 1)'],
+                pointBackgroundColor: ['rgba(255, 20, 147, 1)'], // Magenta
+                pointBorderColor:     ['rgba(255, 20, 147, 1)'], // Magenta
                 // Interaction
                 pointHoverRadius: 8,
                 tension: 0.4,
@@ -268,17 +271,11 @@ function makeChartCo2(data) {
         },
         options: {
             responsive: true,
+            maintainAspectRatio: false,
             scales:{
                 y: {
                     ticks:{
                         beginAtZero: true,
-                    }
-                },
-                x: {
-                    ticks:{
-                        autoSkip: true,
-                        autoSkipPadding: 10,
-                        maxTicksLimit:10,
                     }
                 },
             },

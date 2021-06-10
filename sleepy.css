@@ -1,16 +1,53 @@
-.container {
-  display: flex;
+.item1 {
+  grid-area: header;
 }
 
-.container-fluid {
-  padding-top: 15px;
-  max-width: 75%;
+.item2 {
+  grid-area: bigchart;
+}
+
+.item3 {
+  grid-area: smallchart1;
+}
+
+.item4 {
+  grid-area: smallchart2;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header header header header"
+    "bigchart bigchart smallchart1 smallchart1"
+    "bigchart bigchart smallchart2 smallchart2";
+  grid-gap: 10px;
+  padding: 0 0 0 0;
+}
+
+.grid-container > div {
+  text-align: center;
+}
+
+.chart-container {
+  margin: auto;
+  position: relative;
+}
+
+.big-chart {
+  width: 60vw;
+  height: 75vh;
+}
+
+.small-chart {
+  width: 30vw;
+  height: 35vh;
 }
 
 .jumbotron-fluid {
   padding: 20px;
   text-align: center !important;
   background: rgb(96, 69, 131) !important;
+  margin: 0;
 }
 
 .display-4,
@@ -27,8 +64,20 @@
   text-align-last: center;
 }
 
-@media (max-width: 786px) {
-  .container-fluid {
-    max-width: 100%;
+@media (max-width: 700px) {
+  .grid-container {
+    grid-template-areas:
+      "header"
+      "bigchart"
+      "smallchart1"
+      "smallchart2";
+  }
+  .big-chart {
+    width: auto;
+    height: auto;
+  }
+  .small-chart {
+    width: auto;
+    height: auto;
   }
 }
