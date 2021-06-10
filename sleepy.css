@@ -2,6 +2,10 @@
   display: flex;
 }
 
+.container-fluid {
+  padding-top: 15px;
+}
+
 .jumbotron-fluid {
   padding: 20px;
   text-align: center !important;
@@ -16,4 +20,16 @@
 
 .form-group {
   margin: auto;
+}
+
+.bigchart {
+  height: auto%;
+}
+
+.smallchart {
+  height: auto;
+}
+
+#select-data {
+  text-align-last: center;
 }
