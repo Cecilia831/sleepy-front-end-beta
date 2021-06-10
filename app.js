@@ -36,14 +36,20 @@ function drawCharts(data){
 
 function makeChartMotion(data) {
     console.log(data)
-    let sleepyLabel = data.map(function(d)
-    {
+    let sleepyTime = data.map(function(d){
         return d.Time
     })
 
-    let sleepyData = data.map(function(d)
-    {
+    let sleepyMovement = data.map(function(d){
         return d.Movement
+    })
+
+    let sleepyLight = data.map(function(d){
+        return d.Light
+    })
+
+    let sleepySound = data.map(function(d){
+        return d.Sound
     })
 
     if(window.motionChart != null)
@@ -51,15 +57,16 @@ function makeChartMotion(data) {
         
     window.motionChart = new Chart('main', 
     {
-        type: 'line',
+
         data: {
-            labels: sleepyLabel,
+            labels: sleepyTime,
             datasets:[{
+                type: 'bar',
                 label: 'Movement',
-                data: sleepyData,
+                data: sleepyMovement,
                 fill: true,
                 // Line color
-                backgroundColor: ['rgba(153, 102, 255, 0.2)'],
+                backgroundColor: ['rgba(153, 102, 255, .5)'],
                 borderColor:     ['rgba(153, 102, 255, 1)'],
                 borderWidth: 4,
                 // Point color
@@ -71,6 +78,7 @@ function makeChartMotion(data) {
             }]
         },
         options: {
+            responsive: true,
             scales:{
                 y: {
                     ticks:{
@@ -92,6 +100,10 @@ function makeChartMotion(data) {
                     display: true,
                     position: 'bottom',
                 },
+                title:{
+                    display: true,
+                    text: 'Motion Sensor Report'
+                }
             },
 
         },
@@ -158,6 +170,7 @@ function makeChartTemp(data) {
                 }]
         },
         options: {
+            responsive: true,
             scales:{
                 y: {
                     ticks:{
@@ -179,6 +192,10 @@ function makeChartTemp(data) {
                     display: true,
                     position: 'bottom',
                 },
+                title:{
+                    display: true,
+                    text: 'Temperature Sensor Report'
+                }
             },
 
         },
@@ -214,7 +231,7 @@ function makeChartCo2(data) {
     // Draw New Chart
     window.co2Chart = new Chart('co2', 
     {
-        type: 'line',
+        type: 'bar',
         data: {
             labels: timeData,
             datasets:[{
@@ -222,7 +239,7 @@ function makeChartCo2(data) {
                 data: co2Data,
                 fill:true,
                 // Line color
-                backgroundColor: ['rgba(153, 102, 255, 0.2)'],
+                backgroundColor: ['rgba(153, 102, 255, 0.5)'],
                 borderColor:     ['rgba(153, 102, 255, 1)'],
                 borderWidth: 4,
                 // Point color
@@ -238,7 +255,7 @@ function makeChartCo2(data) {
                 data: tvocData,
                 fill:true,
                 // Line color
-                backgroundColor: ['rgba(255, 20, 147, 0.2)'],
+                backgroundColor: ['rgba(255, 20, 147, 0.5)'],
                 borderColor:     ['rgba(255, 20, 147, 1)'],
                 borderWidth: 4,
                 // Point color
@@ -250,6 +267,7 @@ function makeChartCo2(data) {
             }]
         },
         options: {
+            responsive: true,
             scales:{
                 y: {
                     ticks:{
@@ -270,6 +288,10 @@ function makeChartCo2(data) {
                     display: true,
                     position: 'bottom',
                 },
+                title:{
+                    display: true,
+                    text: 'Air Quality Report'
+                }
             },
 
         },

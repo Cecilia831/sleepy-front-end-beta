@@ -4,6 +4,7 @@
 
 .container-fluid {
   padding-top: 15px;
+  max-width: 75%;
 }
 
 .jumbotron-fluid {
@@ -24,4 +25,10 @@
 
 #select-data {
   text-align-last: center;
+}
+
+@media (max-width: 786px) {
+  .container-fluid {
+    max-width: 100%;
+  }
 }
