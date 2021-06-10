@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+}
+
+.jumbotron-fluid {
+  padding: 20px;
+  text-align: center !important;
+  background: rgb(96, 69, 131) !important;
+}
+
+.display-4,
+.lead {
+  font-weight: bolder;
+  color: white;
+}
+
+.form-group {
+  margin: auto;
+}
