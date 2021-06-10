@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+}
+
+.container-fluid {
+  padding-top: 15px;
+}
+
+.jumbotron-fluid {
+  padding: 20px;
+  text-align: center !important;
+  background: rgb(96, 69, 131) !important;
+}
+
+.display-4,
+.lead {
+  font-weight: bolder;
+  color: white;
+}
+
+.form-group {
+  margin: auto;
+}
+
+#select-data {
+  text-align-last: center;
+}
